@@ -8,6 +8,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
+      "@types/*": ["types/*"],
       "@assets/*": ["assets/*"],
       "@screens/*": ["screens/*"],
       "@layouts/*": ["layouts/*"],

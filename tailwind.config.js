@@ -11,6 +11,7 @@ module.exports = {
     "./interfaces/**/*.{js,jsx,ts,tsx}",
     "./config/**/*.{js,jsx,ts,tsx}",
     "./hooks/**/*.{js,jsx,ts,tsx}",
+    "./types/**/*.{js,jsx,ts,tsx}",
   ],
   presets: [require("nativewind/preset")],
   theme: {

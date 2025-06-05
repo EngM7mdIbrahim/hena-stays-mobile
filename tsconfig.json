@@ -8,16 +8,23 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
-      "@types/*": ["types/*"],
+      "@apis": ["apis/index"],
+      "@apis/*": ["apis/*"],
+      "@commonTypes": ["types"],
+      "@commonTypes/*": ["types/*"],
+      "@hooks": ["hooks/index"],
+      "@hooks/*": ["hooks/*"],
+      "@config": ["config/index"],
+      "@config/*": ["config/*"],
+      "@interfaces": ["interfaces/index"],
+      "@interfaces/*": ["interfaces/*"],
+      "@utils": ["utils/index"],
+      "@utils/*": ["utils/*"],
       "@assets/*": ["assets/*"],
       "@screens/*": ["screens/*"],
       "@layouts/*": ["layouts/*"],
       "@navigation/*": ["navigation/*"],
       "@components/*": ["components/*"],
-      "@api/*": ["api/*"],
-      "@hooks/*": ["hooks/*"],
-      "@interfaces/*": ["interfaces/*"],
-      "@config/*": ["config/*"],
     }
   }
 }

@@ -1,9 +1,12 @@
 import React from "react";
-import { View, Text, ImageBackground, SafeAreaView } from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import { Button } from "../components/Button";
 import Screen from "@components/Screen";
+import { AuthStackScreenProps } from "@interfaces";
 
-export const WelcomeScreen = ({ navigation }: any) => {
+export const WelcomeScreen = ({
+  navigation,
+}: AuthStackScreenProps<"Welcome">) => {
   return (
     <Screen containerClassName="justify-between" withSafeAreaView>
       <View>

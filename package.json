@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "start": "expo start",
+    "prestart": "cd types && npm run build",
+    "preios": "npm run prestart",
+    "preandroid": "npm run prestart",
+    "start": "ex  po start",
     "android": "expo start --android",
     "bundle:android": "bundletool build-apks --bundle=./output/wrapper.aab --output=./output/wrapper.apks --ks ./release.keystore --ks-key-alias sandm --mode=universal && unzip ./output/wrapper.apks -d apks && mv apks/universal.apk ./wrapper.apk && rm -rf apks && rm -rf output",
     "ios": "expo start --ios",
@@ -24,8 +27,9 @@
     "react": "19.0.0",
     "react-native": "0.79.3",
     "react-native-reanimated": "3.17.4",
-    "react-native-safe-area-context": "^5.4.0",
+    "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
+    "react-native-toast-notifications": "^3.4.0",
     "react-native-webview": "13.13.5",
     "zod": "^3.25.51"
   },

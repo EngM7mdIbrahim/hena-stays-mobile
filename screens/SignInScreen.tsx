@@ -4,11 +4,17 @@ import { Container } from "@components/Container";
 import { TextBox } from "@components/TextBox";
 import { Button } from "@components/Button";
 import Screen from "@components/Screen";
+import { useLogin } from "@hooks";
+import clsx from "clsx";
+import { AuthStackScreenProps } from "@interfaces";
+import { Toast } from "react-native-toast-notifications";
 
-export const SignInScreen = ({ navigation }: any) => {
+export const SignInScreen = ({
+  navigation,
+}: AuthStackScreenProps<"Signin">) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const { mutateAsync, isPending } = useLogin();
   return (
     <Screen>
       <ImageBackground
@@ -41,11 +47,22 @@ export const SignInScreen = ({ navigation }: any) => {
           />
         </View>
         <View className="flex-1">
-          <Button variant="primary" passedClassName="">
+          <Button
+            variant="primary"
+            passedClassName={clsx(isPending && "animate-bounce")}
+            onPress={async () => {
+              const response = await mutateAsync({ email, password })
+              Toast.show("Done")
+            }}
+            disabled={isPending}
+          >
             Sign in
           </Button>
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("UserTypeSelection")}>
+        <TouchableOpacity
+          disabled={isPending}
+          onPress={() => navigation.navigate("UserTypeSelection")}
+        >
           <Text className="text-[#677683] text-sm font-normal leading-normal pb-3 pt-1 text-center underline">
             Don't have an account? Sign up
           </Text>

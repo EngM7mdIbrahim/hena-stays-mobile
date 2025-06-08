@@ -2,7 +2,7 @@ import axios from "axios";
 import env from "@config/env";
 
 export const axiosApi = axios.create({
-  baseURL: env.api,
+  baseURL: env.EXPO_PUBLIC_API_URL,
 });
 
 // axiosApi.interceptors.request.use(

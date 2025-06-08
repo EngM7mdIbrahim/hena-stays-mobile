@@ -1,9 +1,8 @@
 import clsx from "clsx";
 import React from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, TouchableOpacityProps } from "react-native";
 
-interface ButtonProps {
-  onPress?: () => void;
+interface ButtonProps extends TouchableOpacityProps {
   variant?: "primary" | "secondary";
   children: React.ReactNode;
   passedClassName?: string;
@@ -11,6 +10,7 @@ interface ButtonProps {
 
 export const Button = ({
   onPress,
+  disabled,
   variant = "primary",
   children,
   passedClassName = "",
@@ -23,6 +23,7 @@ export const Button = ({
         variant === "primary" ? "bg-primary" : "bg-secondary",
         passedClassName
       )}
+      disabled={disabled}
     >
       <Text
         className={`text-base font-bold leading-normal tracking-wide truncate ${

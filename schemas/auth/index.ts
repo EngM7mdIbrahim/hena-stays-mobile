@@ -1,6 +1,4 @@
 export * from './signin'
 export * from './signupUser'
-export * from './signupAgent'
-export * from './signupCompany'
 export * from './resetPassword'
 export * from './forgetPassword'

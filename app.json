@@ -30,10 +30,10 @@
     "extra": {
       "eas": {
         "projectId": "4d1543b7-23e4-4bfd-930e-14f9f7e786d3"
-      }
+      },
+      "supportsRTL": true,
+      "forceRTL": true
     },
-    "plugins": [
-      "expo-localization"
-    ]
+    "plugins": ["expo-localization"]
   }
 }

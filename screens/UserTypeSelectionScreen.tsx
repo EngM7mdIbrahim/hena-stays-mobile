@@ -4,6 +4,8 @@ import { RadioOption } from "@components/RadioOption";
 import { Button } from "@components/Button";
 import { Container } from "@components/Container";
 import Screen from "@components/Screen";
+import { getTranslation } from "@utils";
+import { AppText } from "@components/AppText";
 
 export const UserTypeSelectionScreen = ({ navigation }: any) => {
   const [selected, setSelected] = useState<"UserSignup" | "BrokerSignup">(
@@ -18,26 +20,26 @@ export const UserTypeSelectionScreen = ({ navigation }: any) => {
         resizeMode="cover"
       />
       <Container passedClassName="mt-3" fullScreen>
-        <Text className="text-text text-title font-bold leading-tight tracking-tight text-start">
-          Tell us who you are
-        </Text>
+        <AppText className="text-text text-title font-bold leading-tight tracking-tight text-start">
+          {getTranslation("screens.userTypeSelection.title")}
+        </AppText>
         <View className="w-full flex flex-col py-2">
           <RadioOption
-            label="User"
-            description="Find your dream home"
+            label={getTranslation("screens.userTypeSelection.userOptions.user.title")}
+            description={getTranslation("screens.userTypeSelection.userOptions.user.body")}
             selected={selected === "UserSignup"}
             onPress={() => setSelected("UserSignup")}
           />
           <RadioOption
-            label="Broker"
-            description="List and manage properties"
+            label={getTranslation("screens.userTypeSelection.userOptions.broker.title")}
+            description={getTranslation("screens.userTypeSelection.userOptions.broker.body")}
             selected={selected === "BrokerSignup"}
             onPress={() => setSelected("BrokerSignup")}
           />
         </View>
         <View className="flex-1 justify-end">
           <Button variant="primary" onPress={() => navigation.navigate(selected)}>
-            Continue
+            {getTranslation("screens.userTypeSelection.continueButton")}
           </Button>
         </View>
       </Container>

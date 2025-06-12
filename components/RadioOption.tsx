@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
+import { AppText } from "./AppText";
 
 interface RadioOptionProps {
   label: string;
@@ -34,12 +35,12 @@ export const RadioOption = ({
         {selected && <View className="h-3 w-3 rounded-full bg-text" />}
       </View>
       <View className="flex-1">
-        <Text className="text-text text-sm font-medium leading-normal">
+        <AppText className="text-text text-sm font-medium leading-normal">
           {label}
-        </Text>
-        <Text className="text-[#6a7681] text-sm font-normal leading-normal">
+        </AppText>
+        <AppText className="text-[#6a7681] text-sm font-normal leading-normal">
           {description}
-        </Text>
+        </AppText>
       </View>
     </Pressable>
   );

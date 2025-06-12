@@ -1,14 +1,16 @@
-import * as z from 'zod'
+import { getTranslation } from "@utils";
+import * as z from "zod";
 
-import { TranslationFn } from '@interfaces'
-
-export const SIGN_IN_FORM_SCHEMA = (t: TranslationFn) =>
+export const getSignInFormSchema = () =>
   z.object({
     email: z
       .string()
-      .email({ message: t('errorMessages.auth.signin.invalidEmailFormat') }),
+      .email({
+        message: getTranslation("errorMessages.shared.invalidEmailFormat"),
+      }),
     password: z
       .string()
-      .min(6, { message: t('errorMessages.auth.signin.invalidPassword') }),
-    rememberMe: z.boolean().optional()
-  })
+      .min(6, {
+        message: getTranslation("errorMessages.auth.signin.invalidPassword"),
+      }),
+  });

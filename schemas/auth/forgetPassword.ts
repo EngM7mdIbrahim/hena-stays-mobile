@@ -1,10 +1,11 @@
-import * as z from 'zod'
+import { getTranslation } from "@utils";
+import * as z from "zod";
 
-import { TranslationFn } from '@interfaces'
-
-export const FORGET_PASSWORD_FORM_SCHEMA = (t: TranslationFn) =>
+export const FORGET_PASSWORD_FORM_SCHEMA = () =>
   z.object({
     email: z
       .string()
-      .email({ message: t('errorMessages.auth.signin.invalidEmailFormat') })
-  })
+      .email({
+        message: getTranslation("errorMessages.shared.invalidEmailFormat"),
+      }),
+  });

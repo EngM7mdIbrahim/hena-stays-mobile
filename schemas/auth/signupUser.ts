@@ -1,42 +1,41 @@
-import { matchIsValidTel } from 'mui-tel-input'
 import * as z from 'zod'
+import { getTranslation } from '@utils'
+import { isValidPhoneNumber } from 'libphonenumber-js'
 
-import { TranslationFn } from '@interfaces'
-
-export const USER_SIGN_UP_FORM_SCHEMA = (t: TranslationFn) =>
+export const USER_SIGN_UP_FORM_SCHEMA = () =>
   z.object({
     isEdit: z.boolean().optional().default(false),
 
     name: z
       .string()
-      .min(3, { message: t('errorMessages.shared.nameTooShort') })
-      .max(50, { message: t('errorMessages.shared.nameTooLong') }),
+      .min(3, { message: getTranslation('errorMessages.shared.nameTooShort') })
+      .max(50, { message: getTranslation('errorMessages.shared.nameTooLong') }),
 
     username: z
       .string()
-      .min(3, { message: t('errorMessages.shared.usernameTooShort') })
-      .max(50, { message: t('errorMessages.shared.usernameTooLong') }),
+      .min(3, { message: getTranslation('errorMessages.shared.usernameTooShort') })
+      .max(50, { message: getTranslation('errorMessages.shared.usernameTooLong') }),
 
-    phone: z.string().refine((value) => matchIsValidTel(value), {
-      message: t('errorMessages.shared.invalidPhone')
+    phone: z.string().refine((value) => isValidPhoneNumber(value), {
+      message: getTranslation('errorMessages.shared.invalidPhone')
     }),
 
-    whatsapp: z.string().refine((value) => !value || matchIsValidTel(value), {
-      message: t('errorMessages.shared.invalidWhatsapp')
+    whatsapp: z.string().refine((value) => !value || isValidPhoneNumber(value), {
+      message: getTranslation('errorMessages.shared.invalidWhatsapp')
     }),
 
     sameAsWhatsapp: z.boolean().optional().default(false),
 
     email: z
       .string()
-      .email({ message: t('errorMessages.shared.invalidEmailFormat') }),
+      .email({ message: getTranslation('errorMessages.shared.invalidEmailFormat') }),
 
     password: z.string().optional(),
     confirmPassword: z.string().optional()
   })
 
-export const USER_SIGN_UP_FORM_SCHEMA_WITH_EFFECTS = (t: TranslationFn) =>
-  USER_SIGN_UP_FORM_SCHEMA(t)
+export const USER_SIGN_UP_FORM_SCHEMA_WITH_EFFECTS = () =>
+  USER_SIGN_UP_FORM_SCHEMA()
     .superRefine((data, ctx) => {
       const { isEdit, password, confirmPassword } = data
 
@@ -46,8 +45,8 @@ export const USER_SIGN_UP_FORM_SCHEMA_WITH_EFFECTS = (t: TranslationFn) =>
         if (!password) {
           ctx.addIssue({
             path: ['password'],
-            message: t('errorMessages.shared.required', {
-              field: t('shared.fields.password')
+            message: getTranslation('errorMessages.shared.required', {
+              field: getTranslation('screens.signUp.signUpForm.password')
             }),
             code: z.ZodIssueCode.custom
           })
@@ -55,28 +54,28 @@ export const USER_SIGN_UP_FORM_SCHEMA_WITH_EFFECTS = (t: TranslationFn) =>
           if (password.length < 8) {
             ctx.addIssue({
               path: ['password'],
-              message: t('errorMessages.shared.passwordTooShort'),
+              message: getTranslation('errorMessages.shared.passwordTooShort'),
               code: z.ZodIssueCode.custom
             })
           }
           if (!/[a-zA-Z]/.test(password)) {
             ctx.addIssue({
               path: ['password'],
-              message: t('errorMessages.shared.passwordNoLetter'),
+              message: getTranslation('errorMessages.shared.passwordNoLetter'),
               code: z.ZodIssueCode.custom
             })
           }
           if (!/\d/.test(password)) {
             ctx.addIssue({
               path: ['password'],
-              message: t('errorMessages.shared.passwordNoNumber'),
+              message: getTranslation('errorMessages.shared.passwordNoNumber'),
               code: z.ZodIssueCode.custom
             })
           }
           if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
             ctx.addIssue({
               path: ['password'],
-              message: t('errorMessages.shared.passwordNoSymbol'),
+              message: getTranslation('errorMessages.shared.passwordNoSymbol'),
               code: z.ZodIssueCode.custom
             })
           }
@@ -85,7 +84,7 @@ export const USER_SIGN_UP_FORM_SCHEMA_WITH_EFFECTS = (t: TranslationFn) =>
         if (password !== confirmPassword) {
           ctx.addIssue({
             path: ['confirmPassword'],
-            message: t('errorMessages.shared.passwordsDontMatch'),
+            message: getTranslation('errorMessages.shared.passwordsDontMatch'),
             code: z.ZodIssueCode.custom
           })
         }
@@ -94,7 +93,7 @@ export const USER_SIGN_UP_FORM_SCHEMA_WITH_EFFECTS = (t: TranslationFn) =>
       if (!data.sameAsWhatsapp && !data.whatsapp) {
         ctx.addIssue({
           path: ['whatsapp'],
-          message: t('errorMessages.shared.whatsappRequired'),
+          message: getTranslation('errorMessages.shared.whatsappRequired'),
           code: z.ZodIssueCode.custom
         })
       }

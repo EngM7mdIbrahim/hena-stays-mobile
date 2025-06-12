@@ -3,6 +3,8 @@ import { View, Text, ImageBackground } from "react-native";
 import { Button } from "../components/Button";
 import Screen from "@components/Screen";
 import { AuthStackScreenProps } from "@interfaces";
+import { getTranslation } from "@utils";
+import { AppText } from "@components/AppText";
 
 export const WelcomeScreen = ({
   navigation,
@@ -15,23 +17,22 @@ export const WelcomeScreen = ({
           className="w-full h-64"
           resizeMode="cover"
         />
-        <Text className="text-text text-title font-bold leading-tight tracking-tight px-4 text-center mt-6">
-          Hena Stays
-        </Text>
-        <Text className="text-text text-base font-normal leading-normal mt-2 px-4 text-center">
-          Discover your renting space with our curated listings and personalized
-          search tools.
-        </Text>
+        <AppText className="text-text text-title font-bold leading-tight tracking-tight px-4 text-center mt-6">
+          {getTranslation("screens.welcome.title")}
+        </AppText>
+        <AppText className="text-text text-base font-normal leading-normal mt-2 px-4 text-center">
+          {getTranslation("screens.welcome.description")}
+        </AppText>
       </View>
       <View className="flex flex-col px-4 gap-3">
         <Button variant="primary" onPress={() => navigation.navigate("Signin")}>
-          Sign In
+          {getTranslation("screens.welcome.signInButton")}
         </Button>
         <Button
           variant="secondary"
           onPress={() => navigation.navigate("UserTypeSelection")}
         >
-          Sign Up
+          {getTranslation("screens.welcome.signUpButton")}
         </Button>
       </View>
     </Screen>

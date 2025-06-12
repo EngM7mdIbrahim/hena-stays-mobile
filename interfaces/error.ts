@@ -8,6 +8,5 @@ export interface ErrorData {
 
 export interface ShowError extends ErrorData {
   response?: ErrorData
-
   message?: string
 }

@@ -31,6 +31,10 @@
       "@enums/*": ["enums/*"],
       "@schemas/*": ["schemas/*"],
       "@schemas": ["schemas/index"],
+      "@initializers": ["initializers/index"],
+      "@initializers/*": ["initializers/*"],
+      "@i18n": ["i18n/index"],
+      "@i18n/*": ["i18n/*"],
     }
   }
 }

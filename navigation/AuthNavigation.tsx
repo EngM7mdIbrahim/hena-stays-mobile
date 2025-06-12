@@ -6,6 +6,7 @@ import { UserSignupScreen } from "@screens/UserSignupScreen";
 import { BrokerSignupScreen } from "@screens/BrokerSignupScreen";
 import { SignInScreen } from "@screens/SignInScreen";
 import { AuthStackParamList } from "@interfaces";
+import { getTranslation } from "@utils/getTranslation";
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
@@ -23,22 +24,22 @@ export const AuthNavigation = () => {
       <Stack.Screen
         name="UserTypeSelection"
         component={UserTypeSelectionScreen}
-        options={{ title: "Who are you?" }}
+        options={{ title: getTranslation("screens.userTypeSelection.title") }}
       />
       <Stack.Screen
         name="UserSignup"
         component={UserSignupScreen}
-        options={{ title: "Sign Up" }}
+        options={{ title: getTranslation("screens.signUp.header.title") }}
       />
       <Stack.Screen
         name="BrokerSignup"
         component={BrokerSignupScreen}
-        options={{ title: "Sign Up" }}
+        options={{ title: getTranslation("screens.signUp.header.title") }}
       />
       <Stack.Screen
         name="Signin"
         component={SignInScreen}
-        options={{ title: "Sign in" }}
+        options={{ title: getTranslation("screens.signIn.header.title") }}
       />
     </Stack.Navigator>
   );

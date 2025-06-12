@@ -12,6 +12,8 @@ import { Container } from "@components/Container";
 import { TextBox } from "@components/TextBox";
 import { Button } from "@components/Button";
 import Screen from "@components/Screen";
+import { getTranslation } from "@utils";
+import { AppText } from "@components/AppText";
 
 export const UserSignupScreen = ({ navigation }: any) => {
   const [name, setName] = useState("");
@@ -27,12 +29,12 @@ export const UserSignupScreen = ({ navigation }: any) => {
         resizeMode="cover"
       />
       <Container passedClassName="flex-col gap-3 mt-3" fullScreen>
-        <Text className="text-text text-title font-bold leading-tight tracking-tight text-start">
-          Let's get you signed up
-        </Text>
+        <AppText className="text-text text-title font-bold leading-tight tracking-tight text-start">
+          {getTranslation("screens.signUp.header.title")}
+        </AppText>
         <View className="flex flex-col gap-2 pb-2">
           <TextBox
-            placeholder="Name"
+            placeholder={getTranslation("screens.signUp.signUpForm.name")}
             value={name}
             onChangeText={(text) => setName(text)}
             passedClassName="mb-2"
@@ -40,7 +42,7 @@ export const UserSignupScreen = ({ navigation }: any) => {
             returnKeyType="next"
           />
           <TextBox
-            placeholder="Username"
+            placeholder={getTranslation("screens.signUp.signUpForm.username")}
             value={username}
             onChangeText={setUsername}
             passedClassName="mb-2"
@@ -48,7 +50,7 @@ export const UserSignupScreen = ({ navigation }: any) => {
             returnKeyType="next"
           />
           <TextBox
-            placeholder="Email"
+            placeholder={getTranslation("screens.signUp.signUpForm.email")}
             value={email}
             onChangeText={setEmail}
             passedClassName="mb-2"
@@ -57,7 +59,7 @@ export const UserSignupScreen = ({ navigation }: any) => {
             returnKeyType="next"
           />
           <TextBox
-            placeholder="Password"
+            placeholder={getTranslation("screens.signUp.signUpForm.password")}
             value={password}
             onChangeText={setPassword}
             passedClassName="mb-2"
@@ -67,13 +69,13 @@ export const UserSignupScreen = ({ navigation }: any) => {
         </View>
         <View className="flex-1">
           <Button variant="primary" passedClassName="">
-            Sign up
+            {getTranslation("screens.signUp.signUpForm.submitButton")}
           </Button>
         </View>
         <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
-          <Text className="text-[#677683] text-sm font-normal leading-normal pb-3 pt-1 text-center underline">
-            Already have an account? Log in
-          </Text>
+          <AppText className="text-[#677683] text-sm font-normal leading-normal pb-3 pt-1 text-center underline">
+            {getTranslation("screens.signUp.signInButton")}
+          </AppText>
         </TouchableOpacity>
       </Container>
     </Screen>

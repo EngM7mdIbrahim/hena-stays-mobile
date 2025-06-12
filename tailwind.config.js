@@ -17,6 +17,7 @@ module.exports = {
     "./utils/**/*.{js,jsx,ts,tsx}",
     "./constants/**/*.{js,jsx,ts,tsx}",
     "./enums/**/*.{js,jsx,ts,tsx}",
+    "./schemas/**/*.{js,jsx,ts,tsx}",
   ],
   presets: [require("nativewind/preset")],
   theme: {

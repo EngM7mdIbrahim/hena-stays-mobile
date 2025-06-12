@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, View, TouchableOpacity, ImageBackground } from "react-native";
 import { Container } from "@components/Container";
 import { TextBox } from "@components/TextBox";
@@ -7,16 +7,27 @@ import Screen from "@components/Screen";
 import { useLogin } from "@hooks";
 import clsx from "clsx";
 import { AuthStackScreenProps } from "@interfaces";
-import { Toast } from "react-native-toast-notifications";
 import { appNotifications } from "@utils";
-import Icon from "@expo/vector-icons/FontAwesome6";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const SignInScreen = ({
   navigation,
 }: AuthStackScreenProps<"Signin">) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { mutateAsync, isPending } = useLogin();
+  const { control, handleSubmit } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: zodResolver(
+    ),
+  });
+  const { mutate: signIn, isPending } = useLogin({
+    onSuccess: () => {
+      appNotifications.success("Login successful");
+    },
+  });
+
   return (
     <Screen>
       <ImageBackground
@@ -53,7 +64,7 @@ export const SignInScreen = ({
             variant="primary"
             passedClassName={clsx(isPending && "animate-bounce")}
             onPress={async () => {
-              appNotifications.info("Hello");
+              signIn({ email, password });
             }}
             disabled={isPending}
           >

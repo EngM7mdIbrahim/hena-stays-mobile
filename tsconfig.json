@@ -29,6 +29,8 @@
       "@constants": ["constants/index"],
       "@enums": ["enums/index"],
       "@enums/*": ["enums/*"],
+      "@schemas/*": ["schemas/*"],
+      "@schemas": ["schemas/index"],
     }
   }
 }

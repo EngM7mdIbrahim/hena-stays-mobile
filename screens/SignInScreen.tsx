@@ -8,6 +8,8 @@ import { useLogin } from "@hooks";
 import clsx from "clsx";
 import { AuthStackScreenProps } from "@interfaces";
 import { Toast } from "react-native-toast-notifications";
+import { appNotifications } from "@utils";
+import Icon from "@expo/vector-icons/FontAwesome6";
 
 export const SignInScreen = ({
   navigation,
@@ -51,8 +53,7 @@ export const SignInScreen = ({
             variant="primary"
             passedClassName={clsx(isPending && "animate-bounce")}
             onPress={async () => {
-              const response = await mutateAsync({ email, password })
-              Toast.show("Done")
+              appNotifications.info("Hello");
             }}
             disabled={isPending}
           >

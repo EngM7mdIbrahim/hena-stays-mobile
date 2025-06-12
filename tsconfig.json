@@ -25,6 +25,10 @@
       "@layouts/*": ["layouts/*"],
       "@navigation/*": ["navigation/*"],
       "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
+      "@constants": ["constants/index"],
+      "@enums": ["enums/index"],
+      "@enums/*": ["enums/*"],
     }
   }
 }

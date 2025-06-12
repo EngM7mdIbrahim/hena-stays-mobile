@@ -1,5 +1,5 @@
 import { ShowError } from "@interfaces";
-import { Toast } from "react-native-toast-notifications";
+import { appNotifications } from "./appNotifications";
 
 export function getError(error: ShowError, showToast: boolean = true): string {
   let message: string = "";
@@ -30,12 +30,8 @@ export function getError(error: ShowError, showToast: boolean = true): string {
     message = errorMessage;
   }
 
-  // if (showToast) {
-  //   Toast.show(message, {
-  //     type: "danger",
-  //     placement: "top",
-  //     duration: 4000,
-  //   });
-  // }
+  if (showToast) {
+    appNotifications.error(message);
+  }
   return message;
 }

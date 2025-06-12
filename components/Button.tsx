@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { TouchableOpacity, Text, TouchableOpacityProps } from "react-native";
+import { TouchableOpacity, Text, TouchableOpacityProps, Animated } from "react-native";
 
 interface ButtonProps extends TouchableOpacityProps {
   variant?: "primary" | "secondary";
@@ -15,8 +15,9 @@ export const Button = ({
   children,
   passedClassName = "",
 }: ButtonProps) => {
+  const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity)
   return (
-    <TouchableOpacity
+    <AnimatedTouchable
       onPress={onPress}
       className={clsx(
         "flex min-w-[84px] max-w-[480px] items-center justify-center overflow-hidden rounded-full h-12 px-5 w-full",
@@ -26,12 +27,13 @@ export const Button = ({
       disabled={disabled}
     >
       <Text
-        className={`text-base font-bold leading-normal tracking-wide truncate ${
+        className={clsx(
+          "text-base font-bold leading-normal tracking-wide truncate",
           variant === "primary" ? "text-white" : "text-text"
-        }`}
+        )}
       >
         {children}
       </Text>
-    </TouchableOpacity>
+    </AnimatedTouchable>
   );
 };

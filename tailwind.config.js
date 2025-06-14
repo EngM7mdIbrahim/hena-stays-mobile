@@ -20,6 +20,7 @@ module.exports = {
     "./schemas/**/*.{js,jsx,ts,tsx}",
     "./initializers/**/*.{js,jsx,ts,tsx}",
     "./i18n/**/*.{js,jsx,ts,tsx}",
+    "./store/**/*.{js,jsx,ts,tsx}",
   ],
   presets: [require("nativewind/preset")],
   theme: {

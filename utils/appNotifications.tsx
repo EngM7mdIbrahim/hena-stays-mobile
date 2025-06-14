@@ -15,16 +15,16 @@ const colorMap: Record<NotificationStatus, ToastOptions["type"]> = {
 
 const iconsMap = {
   [NotificationStatus.SUCCESS]: (
-    <Icon iconStyle="solid" name="circle-check" size={20} color="green" />
+    <Icon iconStyle="solid" name="circle-check" size={20} color="white" />
   ),
   [NotificationStatus.ERROR]: (
-    <Icon iconStyle="solid" name="triangle-exclamation" size={20} color="red" />
+    <Icon iconStyle="solid" name="triangle-exclamation" size={20} color="white" />
   ),
   [NotificationStatus.WARNING]: (
-    <Icon iconStyle="solid" name="triangle-exclamation" size={20} color="red" />
+    <Icon iconStyle="solid" name="triangle-exclamation" size={20} color="white" />
   ),
   [NotificationStatus.INFO]: (
-    <Icon iconStyle="solid"  name="circle-info" size={20} color="#3b82f6" />
+    <Icon iconStyle="solid"  name="circle-info" size={20} color="white" />
   ),
   [NotificationStatus.LOADING]: (
     <Icon iconStyle="solid" name="spinner" size={20} color="#3b82f6" />

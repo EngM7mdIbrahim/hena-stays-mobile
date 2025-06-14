@@ -1,6 +1,6 @@
 export enum NotificationStatus {
   SUCCESS = "success",
-  ERROR = "error",
+  ERROR = "danger",
   WARNING = "warning",
   INFO = "info",
   LOADING = "loading",

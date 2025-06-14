@@ -13,10 +13,12 @@ import { getSignInFormSchema } from "@schemas/auth";
 import { FormTextBox } from "@components/form";
 import { z } from "zod";
 import { AppText } from "@components/AppText";
+import { useAuthStore } from "@store";
 
 export const SignInScreen = ({
   navigation,
 }: AuthStackScreenProps<"Signin">) => {
+  const { setUser, setAuthToken, user } = useAuthStore();
   const formSchema = getSignInFormSchema();
   const {
     control,
@@ -30,8 +32,10 @@ export const SignInScreen = ({
     resolver: zodResolver(formSchema),
   });
   const { mutate: signIn, isPending } = useLogin({
-    onSuccess: () => {
+    onSuccess: (data) => {
       appNotifications.success("Login successful");
+      setUser(data.user);
+      setAuthToken(data.token);
     },
   });
 
@@ -81,6 +85,7 @@ export const SignInScreen = ({
           >
             {getTranslation("screens.signIn.signInForm.submitButton")}
           </Button>
+          {user && <AppText>{JSON.stringify(user, null, 2)}</AppText>}
         </View>
         <TouchableOpacity
           disabled={isPending}

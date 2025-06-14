@@ -7,8 +7,8 @@ import { I18nManager } from "react-native";
 let i18n: I18n | null = null;
 
 export const initiateI18n = () => {
-  // const locale = getLocales()[0].languageCode ?? Language.EN;
-  const locale = Language.AR;
+  const locale = getLocales()[0].languageCode ?? Language.EN;
+  // const locale = Language.AR;
   const isRTLLanguage = locale === Language.AR;
   I18nManager.allowRTL(true);
   I18nManager.forceRTL(isRTLLanguage);

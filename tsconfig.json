@@ -35,6 +35,8 @@
       "@initializers/*": ["initializers/*"],
       "@i18n": ["i18n/index"],
       "@i18n/*": ["i18n/*"],
+      "@store": ["store/index"],
+      "@store/*": ["store/*"]
     }
   }
 }

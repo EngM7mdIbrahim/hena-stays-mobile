@@ -78,6 +78,8 @@ export const ar: AppDictionary = {
       passwordNoSymbol: "كلمة المرور غير صالحة",
       passwordsDontMatch: "كلمات المرور غير متطابقة",
     },
+    unsupportedUser:
+      "أنت غير مدعوم من هذا التطبيق، يرجى الذهاب إلى الموقع: https://henastays.com",
     auth: {
       signin: {
         invalidPassword: "كلمة المرور غير صالحة",

@@ -12,6 +12,7 @@ export const useAuthStore = create<AuthStoreState>()(
       setUser: (user: User) => set({ user }),
       authToken: null,
       setAuthToken: (authToken: string) => set({ authToken }),
+      logout: () => set({ user: null, authToken: null }),
     }),
     {
       name: SECURE_STORAGE_KEYS.AUTH_TOKEN,

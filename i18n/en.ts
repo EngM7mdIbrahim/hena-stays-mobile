@@ -79,6 +79,8 @@ export const en: AppDictionary = {
       passwordNoSymbol: "Password must contain at least one symbol",
       passwordsDontMatch: "Passwords do not match",
     },
+    unsupportedUser:
+      "You are not supported by this app, please go to the website: https://henastays.com",
     auth: {
       signin: {
         invalidPassword: "Password must be at least 6 characters",

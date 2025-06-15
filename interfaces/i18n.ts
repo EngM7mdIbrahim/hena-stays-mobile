@@ -66,6 +66,7 @@ export interface AppDictionary {
       passwordNoSymbol: string;
       passwordsDontMatch: string;
     },
+    unsupportedUser: string;
     auth: {
       signin: {
         invalidPassword: string;

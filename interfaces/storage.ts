@@ -11,4 +11,5 @@ export interface AuthStoreState {
   setUser: (user: User) => void;
   authToken: string | null;
   setAuthToken: (authToken: string) => void;
+  logout: () => void;
 }

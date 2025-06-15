@@ -24,6 +24,7 @@
       "@screens/*": ["screens/*"],
       "@layouts/*": ["layouts/*"],
       "@navigation/*": ["navigation/*"],
+      "@navigation": ["navigation/index"],
       "@components/*": ["components/*"],
       "@constants/*": ["constants/*"],
       "@constants": ["constants/index"],

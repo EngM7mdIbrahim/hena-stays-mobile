@@ -7,6 +7,7 @@ export type AuthStackParamList = {
   UserTypeSelection: undefined;
   UserSignup: undefined;
   BrokerSignup: undefined;
+  OTP: { email: string };
 };
 
 export type AuthStackScreenProps<T extends keyof AuthStackParamList> =

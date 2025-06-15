@@ -43,9 +43,19 @@ export interface AppDictionary {
         email: string;
         password: string;
         confirmPassword: string;
+        phone: string;
+        whatsapp: string;
+        sameAsWhatsapp: string;
         submitButton: string;
       };
       signInButton: string;
+    };
+    otp: BaseScreenAppDictionary & {
+      otpForm: {
+        otp: string;
+        submitButton: string;
+        email: string;
+      };
     };
   },
   errorMessages: {

@@ -55,9 +55,23 @@ export const ar: AppDictionary = {
         email: "البريد الإلكتروني",
         password: "كلمة المرور",
         confirmPassword: "تأكيد كلمة المرور",
+        phone: "الهاتف",
+        whatsapp: "واتساب",
+        sameAsWhatsapp: "واتساب هو نفس الهاتف",
         submitButton: signUp,
       },
       signInButton: "لديك حساب؟ تسجيل الدخول",
+    },
+    otp: {
+      header: {
+        title: "تحقق من بريدك الإلكتروني",
+      },
+      title: "تحقق من بريدك الإلكتروني",
+      otpForm: {
+        otp: "الرجاء إدخال الرمز المرسل إلى بريدك الإلكتروني",
+        submitButton: "تحقق",
+        email: "تم إرسال الرمز إلى %{email}!",
+      },
     },
   },
   errorMessages: {

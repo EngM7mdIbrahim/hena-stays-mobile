@@ -14,6 +14,7 @@ import { FormTextBox } from "@components/form";
 import { z } from "zod";
 import { AppText } from "@components/AppText";
 import { useAuthStore } from "@store";
+import { DEFAULT_SIGNIN_FORM_DATA } from "@constants";
 
 export const SignInScreen = ({
   navigation,
@@ -25,10 +26,7 @@ export const SignInScreen = ({
     formState: { errors },
     handleSubmit,
   } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
+    defaultValues: DEFAULT_SIGNIN_FORM_DATA,
     resolver: zodResolver(formSchema),
   });
   const { mutate: signIn, isPending } = useLogin({

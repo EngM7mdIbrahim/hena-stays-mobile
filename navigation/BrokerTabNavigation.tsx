@@ -2,6 +2,7 @@ import { AppText } from "@components/AppText";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { ProfileScreen } from "@screens/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -59,14 +60,6 @@ const BookingsScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <AppText>Bookings Screen</AppText>
-    </View>
-  );
-};
-
-const ProfileScreen = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppText>Profile Screen</AppText>
     </View>
   );
 };

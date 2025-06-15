@@ -7,6 +7,7 @@ import { BrokerSignupScreen } from "@screens/BrokerSignupScreen";
 import { SignInScreen } from "@screens/SignInScreen";
 import { AuthStackParamList } from "@interfaces";
 import { getTranslation } from "@utils/getTranslation";
+import { OTPScreen } from "@screens/OTPScreen";
 
 const Stack = createNativeStackNavigator<AuthStackParamList>();
 
@@ -40,6 +41,11 @@ export const AuthNavigation = () => {
         name="Signin"
         component={SignInScreen}
         options={{ title: getTranslation("screens.signIn.header.title") }}
+      />
+      <Stack.Screen
+        name="OTP"
+        component={OTPScreen}
+        options={{ title: getTranslation("screens.otp.header.title") }}
       />
     </Stack.Navigator>
   );

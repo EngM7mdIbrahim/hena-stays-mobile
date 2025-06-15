@@ -20,7 +20,7 @@ export function NavigationManager() {
   }, [user, logout]);
 
   const CurrentNavigation = useMemo(() => {
-    if (!user) {
+    if (!user || !authToken) {
       return AuthNavigation;
     }
     switch (user.role) {

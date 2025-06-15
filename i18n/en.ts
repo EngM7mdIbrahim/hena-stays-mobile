@@ -55,9 +55,23 @@ export const en: AppDictionary = {
         email: "Email",
         password: "Password",
         confirmPassword: "Confirm Password",
+        phone: "Phone",
+        whatsapp: "WhatsApp",
+        sameAsWhatsapp: "WhatsApp is the same as phone",
         submitButton: signUp,
       },
       signInButton: "Already have an account? Sign In",
+    },
+    otp: {
+      header: {
+        title: "Verify your email",
+      },
+      title: "Verify your email",
+      otpForm: {
+        otp: "Please enter the code sent to your email",
+        submitButton: "Verify",
+        email: "Email is sent to %{email}!",
+      },
     },
   },
   errorMessages: {
